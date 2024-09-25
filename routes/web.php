@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController ;
+use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client\CouponController;
 use App\Http\Controllers\Client\RestaurantController;
@@ -84,9 +85,39 @@ Route::middleware('admin')->group(function () {
         Route::get('/delete/city/{id}', 'DeleteCity')->name('delete.city');
     });
 
+    Route::controller(ManageController::class)->group(function(){
+        Route::get('/admin/all/product', 'AdminAllProduct')->name('admin.all.product');
+        Route::get('/admin/add/product', 'AdminAddProduct')->name('admin.add.product');
+        Route::post('/admin/store/product', 'AdminStoreProduct')->name('admin.product.store');
+        Route::get('/admin/edit/product/{id}', 'AdminEditProduct')->name('admin.edit.product');
+        Route::post('/admin/update/product', 'AdminUpdateProduct')->name('admin.product.update');
+        Route::get('/admin/delete/product/{id}', 'AdminDeleteProduct')->name('admin.delete.product');
+
+
+    });
+
+    Route::controller(ManageController::class)->group(function(){
+        Route::get('/pending/restaurant', 'PendingRestaurant')->name('pending.restaurant');
+
+        Route::get('/clientchangeStatus', 'ClientChangeStatus');
+        Route::get('/approve/restaurant', 'ApproveRestaurant')->name('approve.restaurant');
+
+    });
+
+    Route::controller(ManageController::class)->group(function(){
+        Route::get('/all/banner', 'AllBanner')->name('all.banner');
+
+        Route::post('/banner/store', 'BannerStore')->name('banner.store');
+        Route::get('/edit/banner/{id}', 'EditBanner');
+        Route::post('/banner/update', 'BannerUpdate')->name('banner.update');
+        Route::get('/delete/banner/{id}', 'DeleteBanner')->name('delete.banner'); 
+    });
+
+
+
 }); // End Admin Middleware
 
-Route::middleware('client')->group(function () {
+Route::middleware(['client','status'])->group(function () {
 
     Route::controller(RestaurantController::class)->group(function(){
         Route::get('/all/menu', 'AllMenu')->name('all.menu');
@@ -104,7 +135,6 @@ Route::middleware('client')->group(function () {
         Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
         Route::post('/update/product', 'UpdateProduct')->name('product.update');
         Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
-        Route::get('/changeStatus', 'ChangeStatus');
     });
 
     Route::controller(RestaurantController::class)->group(function(){
@@ -129,3 +159,6 @@ Route::middleware('client')->group(function () {
 
 });
  // End Client Middleware
+
+ /// That will be for all user
+ Route::get('/changeStatus', [RestaurantController::class, 'ChangeStatus']);
