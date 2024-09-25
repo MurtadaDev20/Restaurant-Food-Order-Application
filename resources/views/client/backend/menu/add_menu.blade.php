@@ -1,5 +1,5 @@
-@extends('admin.admin_dashboard')
-@section('admin')
+@extends('client.client_dashboard')
+@section('client')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <div class="page-content">
@@ -9,12 +9,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0 font-size-18">Add Category</h4>
+                    <h4 class="mb-sm-0 font-size-18">Add Menu</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Add Category  </li>
+                            <li class="breadcrumb-item active">Add Menu  </li>
                         </ol>
                     </div>
 
@@ -28,15 +28,15 @@
  <div class="card">
 <div class="card-body p-4">
 
-    <form id="myForm" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+<form id="myForm" action="{{ route('menu.store') }}" method="post" enctype="multipart/form-data">
     @csrf
 
 <div class="row">
     <div class="col-lg-12">
         <div>
             <div class="form-group mb-3">
-                <label for="example-text-input" class="form-label">Category Name</label>
-                <input class="form-control" type="text" name="category_name"  id="example-text-input">
+                <label for="example-text-input" class="form-label">Menu Name</label>
+                <input class="form-control" type="text" name="menu_name"  id="example-text-input">
             </div>
 
         </div>
@@ -46,7 +46,7 @@
         <div class="mt-3 mt-lg-0">
 
             <div class="form-group mb-3">
-                <label for="example-text-input" class="form-label">Category Image</label>
+                <label for="example-text-input" class="form-label">Menu Image</label>
                 <input class="form-control" name="image" type="file"  id="image">
             </div>
             <div class="mb-3">
@@ -133,5 +133,6 @@
     });
 
 </script>
+
 
 @endsection
