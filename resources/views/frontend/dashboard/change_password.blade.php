@@ -1,6 +1,5 @@
-@include('frontend.dashboard.header')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+@extends('frontend.dashboard.dashboard')
+@section('dashboard')
 
 @php
     $id = Auth::user()->id;
@@ -110,4 +109,4 @@
 </script>
 
 
- @include('frontend.dashboard.footer')
+@endsection

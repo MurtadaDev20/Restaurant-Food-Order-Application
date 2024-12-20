@@ -112,16 +112,45 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="grid"></i>
+                        <span data-key="t-apps">Manage Orders</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('pending.order') }}">
+                                <span data-key="t-calendar">Pending Orders </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('confirm.order') }}">
+                                <span data-key="t-calendar">Confirm Orders </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('processing.order') }}">
+                                <span data-key="t-calendar">Processing Orders </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('deliverd.order') }}">
+                                <span data-key="t-calendar">Deliverd Orders </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="menu-title mt-2" data-key="t-components">Elements</li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="briefcase"></i>
-                        <span data-key="t-components">Components</span>
+                        <span data-key="t-components">Manage Reports</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ui-alerts.html" data-key="t-alerts">Alerts</a></li>
-                        <li><a href="ui-buttons.html" data-key="t-buttons">Buttons</a></li>
+                        <li><a href="{{ route('admin.all.reports') }}" data-key="t-alerts">All Reports</a></li>
 
                     </ul>
                 </li>
