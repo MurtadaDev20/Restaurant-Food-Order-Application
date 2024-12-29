@@ -1,0 +1,1 @@
+add new column to the permissions name is group_name

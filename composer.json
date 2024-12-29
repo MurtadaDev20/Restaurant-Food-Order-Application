@@ -10,7 +10,10 @@
         "haruncpi/laravel-id-generator": "^1.1",
         "intervention/image": "^3.8",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "maatwebsite/excel": "^3.1",
+        "spatie/laravel-permission": "^6.10",
+        "stripe/stripe-php": "^16.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
